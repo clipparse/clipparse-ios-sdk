@@ -1,6 +1,6 @@
 # ClipParse iOS SDK
 
-The official ClipParse SDK for Apple platforms, distributed as a precompiled XCFramework via Swift Package Manager.
+The official ClipParse SDK for Apple platforms — extract structured recipes (ingredients, steps, timings) from TikTok and Instagram video links. Distributed as a precompiled XCFramework via Swift Package Manager.
 
 ## Requirements
 
@@ -29,6 +29,49 @@ Then import it where needed:
 
 ```swift
 import ClipParse
+```
+
+## Usage
+
+Create a client with your API key, then extract a recipe from a TikTok or Instagram link:
+
+```swift
+import ClipParse
+
+let client = ClipParseClient(apiKey: "<your API key>")
+
+let url = URL(string: "https://www.tiktok.com/@somecreator/video/1234567890")!
+switch try await client.extract(url) {
+case .recipe(let recipe):
+    print(recipe.title)
+    print(recipe.servings ?? 0, "servings —",
+          recipe.prepTimeMinutes ?? 0, "min prep,",
+          recipe.cookTimeMinutes ?? 0, "min cook")
+    for ingredient in recipe.ingredients {
+        print(ingredient.name, ingredient.quantity ?? "", ingredient.unit?.rawValue ?? "")
+    }
+    for step in recipe.steps {
+        print(step.text)
+    }
+case .noRecipe(let reason):
+    print("No recipe found:", reason)
+}
+```
+
+### Error handling
+
+API failures throw a typed `ClipParseError`, so you can give users specific feedback:
+
+```swift
+do {
+    let result = try await client.extract(url)
+} catch ClipParseError.unsupportedPlatform {
+    // Only TikTok and Instagram links are supported
+} catch ClipParseError.invalidAPIKey {
+    // Check the API key configured for this client
+} catch let error as ClipParseError where error.isRetryable {
+    // Transient failure (e.g. network) — safe to retry
+}
 ```
 
 ## Binary integrity
