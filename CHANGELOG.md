@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Instagram caption fetches no longer use the host app's shared session.
+- Privacy improvements to the SDK's internal networking.
 - The bundled privacy manifest (`PrivacyInfo.xcprivacy`) is now complete: it declares no tracking and no required-reason API usage, and discloses the submitted video URL as the only collected data (unlinked, app-functionality purpose only).
 
 ## [0.2.0] - 2026-08-12
