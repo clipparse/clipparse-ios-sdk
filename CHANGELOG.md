@@ -5,6 +5,12 @@ All notable changes to the ClipParse iOS SDK will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2026-11-08
+
+### Added
+
+- `ClipParseError.postUnavailable`, thrown when the post was deleted, is private, or doesn't exist. It is not retryable: retrying the same link won't succeed. These posts previously surfaced as a server error.
+
 ## [1.1.0] - 2026-10-22
 
 ### Added
@@ -46,6 +52,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `ClipParseClient` with async `extract(_:)` for extracting structured recipes (ingredients, steps, servings, timings) from TikTok and Instagram video links.
 - Typed `ClipParseError` with an `isRetryable` flag for transient failures.
 
+[1.2.0]: https://github.com/clipparse/clipparse-ios-sdk/releases/tag/1.2.0
 [1.1.0]: https://github.com/clipparse/clipparse-ios-sdk/releases/tag/1.1.0
 [1.0.1]: https://github.com/clipparse/clipparse-ios-sdk/releases/tag/1.0.1
 [1.0.0]: https://github.com/clipparse/clipparse-ios-sdk/releases/tag/1.0.0

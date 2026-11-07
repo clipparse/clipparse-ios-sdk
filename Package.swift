@@ -11,8 +11,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "ClipParse",
-            url: "https://github.com/clipparse/clipparse-ios-sdk/releases/download/1.1.0/ClipParse.xcframework.zip",
-            checksum: "ff36c081d0e53d2bfbef23f0614569eba59e8821d4e7d8d4a55f67c8219ac463"
+            url: "https://github.com/clipparse/clipparse-ios-sdk/releases/download/1.2.0/ClipParse.xcframework.zip",
+            checksum: "799ffeaff455624562d3156f8ca961018632c5a557b89a1b25abfd54fde95542"
         )
     ]
 )
