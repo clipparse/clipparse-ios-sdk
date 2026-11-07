@@ -67,6 +67,8 @@ do {
     let result = try await client.extract(url)
 } catch ClipParseError.unsupportedPlatform {
     // Only TikTok and Instagram links are supported
+} catch ClipParseError.postUnavailable {
+    // The post was deleted, is private, or doesn't exist
 } catch ClipParseError.invalidAPIKey {
     // Check the API key configured for this client
 } catch let error as ClipParseError where error.isRetryable {
