@@ -5,6 +5,16 @@ All notable changes to the ClipParse iOS SDK will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2026-11-09
+
+### Added
+
+- `Unit.pt`, `Unit.qt` and `Unit.gal` for pints, quarts and gallons.
+
+### Changed
+
+- An ingredient unit that the installed SDK version doesn't recognize now decodes as a `nil` unit, with the original text still in `Ingredient.raw`. Previously, the whole extraction failed with a decoding error. New units can now be added to the API without breaking apps on older SDK versions.
+
 ## [1.2.0] - 2026-11-08
 
 ### Added
@@ -52,6 +62,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `ClipParseClient` with async `extract(_:)` for extracting structured recipes (ingredients, steps, servings, timings) from TikTok and Instagram video links.
 - Typed `ClipParseError` with an `isRetryable` flag for transient failures.
 
+[1.3.0]: https://github.com/clipparse/clipparse-ios-sdk/releases/tag/1.3.0
 [1.2.0]: https://github.com/clipparse/clipparse-ios-sdk/releases/tag/1.2.0
 [1.1.0]: https://github.com/clipparse/clipparse-ios-sdk/releases/tag/1.1.0
 [1.0.1]: https://github.com/clipparse/clipparse-ios-sdk/releases/tag/1.0.1
