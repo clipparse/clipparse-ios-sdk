@@ -82,4 +82,4 @@ The SDK ships as a precompiled XCFramework. The `Package.swift` manifest pins th
 
 ## License
 
-This SDK is distributed under the MIT License. See [LICENSE](LICENSE) for details.
+The SDK is proprietary software, governed by the [ClipParse SDK License](https://clipparse.com/sdk-license). It is free to embed in your apps and to ship with them.
