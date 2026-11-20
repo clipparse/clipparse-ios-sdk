@@ -1,6 +1,6 @@
 # ClipParse iOS SDK
 
-The official ClipParse SDK for Apple platforms — extract structured recipes (ingredients, steps, timings) from TikTok and Instagram video links. Distributed as a precompiled XCFramework via Swift Package Manager.
+The official ClipParse SDK for Apple platforms — extract structured recipes (ingredients, steps, timings) from TikTok and Instagram post links. Distributed as a precompiled XCFramework via Swift Package Manager.
 
 ## Requirements
 
