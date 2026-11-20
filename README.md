@@ -71,6 +71,10 @@ do {
     // The post was deleted, is private, or doesn't exist
 } catch ClipParseError.invalidAPIKey {
     // Check the API key configured for this client
+} catch ClipParseError.rateLimited(let retryAfter) {
+    // Too many requests in a short time — wait for retryAfter seconds, then retry
+} catch ClipParseError.quotaExceeded(let retryAfter) {
+    // The key's allowance is spent — it resets in retryAfter seconds (nil: it doesn't reset)
 } catch let error as ClipParseError where error.isRetryable {
     // Transient failure (e.g. network) — safe to retry
 }
