@@ -33,6 +33,8 @@ import ClipParse
 
 ## Usage
 
+You need a ClipParse API key: get a free one at [clipparse.com/get-free-key](https://clipparse.com/get-free-key). It takes seconds and doesn't require a credit card.
+
 Create a client with your API key, then extract a recipe from a TikTok or Instagram link:
 
 ```swift
