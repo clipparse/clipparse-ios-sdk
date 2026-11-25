@@ -3,6 +3,7 @@
 The official ClipParse SDK for iOS and macOS: add recipe import from TikTok and Instagram links to your Swift or SwiftUI app. Pass a post's link and get back the recipe as structured data: the title, ingredients with quantities and units, ordered steps, timings and servings. Distributed as a precompiled XCFramework via Swift Package Manager.
 
 - [Guide: import recipes from TikTok and Instagram links in an iOS app](https://docs.clipparse.com/guides/import-recipes-from-tiktok-instagram-ios), with a SwiftUI screen and the share sheet
+- [Example app](https://github.com/clipparse/tiktok-instagram-recipe-import-swiftui): an open-source SwiftUI app with a share extension
 - [API reference](https://docs.clipparse.com/): every recipe field and outcome
 - [Get a free API key](https://clipparse.com/get-free-key)
 
@@ -43,6 +44,7 @@ Create a client with your API key, then extract a recipe from a TikTok or Instag
 
 ```swift
 import ClipParse
+import Foundation
 
 let client = ClipParseClient(apiKey: "<your API key>")
 
@@ -61,6 +63,9 @@ case .recipe(let recipe):
     }
 case .noRecipe(let reason):
     print("No recipe found:", reason)
+@unknown default:
+    // An outcome added in a later SDK release.
+    print("We couldn't import a recipe from this post.")
 }
 ```
 
